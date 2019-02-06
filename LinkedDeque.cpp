@@ -2,6 +2,7 @@
 
 LinkedDeque::LinkedDeque() {
     size = 0;
+    cursor = list.getCursor();
 }
 
 char LinkedDeque::front() {
@@ -37,4 +38,8 @@ void LinkedDeque::removeBack() {
         throw("EmptyDeque");
     list.removeBack();
     size--;
+}
+
+void LinkedDeque::iterateCursor() {
+    list.iterateCursor();
 }
