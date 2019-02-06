@@ -22,10 +22,8 @@ public:
 
     virtual std::string prefixToInfix(std::string inStr);
     virtual std::string prefixToPostfix(std::string inStr);
-
-    void decodeInput(std::string inStr);
-
     LinkedDeque getDeque() const { return notation_deque; }
+    void decodeInput(std::string inStr);
 private:
     LinkedDeque notation_deque;
 };

@@ -38,3 +38,9 @@ void LinkedDeque::removeBack() {
     list.removeBack();
     size--;
 }
+
+void LinkedDeque::clear() {
+    while(!emptyDeque()) {
+        removeBack();
+    }
+}

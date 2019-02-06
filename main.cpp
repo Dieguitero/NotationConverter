@@ -17,23 +17,8 @@ int main() {
     auto deque2 = nc2.getDeque();
     auto deque3 = nc3.getDeque();
     
-    std::cout << "Forwards: " << std::endl;
-    while (!deque.emptyDeque()){
-        std::cout << deque.front() << std::endl;
-        deque.removeFront();
-    }
-    if(deque.emptyDeque())
-        std::cout << "properly emptied deque" << std::endl;
+    std::cout << nc.infixToPostfix(infix1) << std::endl;
 
-    std::cout << "Backwards: " << std::endl;
-
-    while(!deque2.emptyDeque()) {
-        std::cout << deque2.back() << std::endl;
-        deque2.removeBack();
-    }
-    if(deque2.emptyDeque()){
-        std::cout << "properly emptied deque2" << std::endl;
-    }
 
     return 0;
 }
