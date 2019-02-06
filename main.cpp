@@ -11,11 +11,12 @@ int main() {
 
     nc.decodeInput(infix1);
     auto deque = nc.getDeque();
-    auto deque2 = deque;
-
+    auto deque2 = nc.getDeque();
     std::cout << "Forwards: " << std::endl;
     for(auto i = 0; i < deque.getSize(); i++){
         std::cout << deque.front() << std::endl;
+    }
+    while(!deque.emptyDeque()){
         deque.removeFront();
     }
     if(deque.emptyDeque())
@@ -24,6 +25,8 @@ int main() {
     std::cout << "Backwards: " << std::endl;
     for(auto i = 0; i < deque2.getSize(); i++) {
         std::cout << deque2.back() << std::endl;
+    }
+    while(!deque.emptyDeque()) {
         deque2.removeBack();
     }
     if(deque2.emptyDeque()){
