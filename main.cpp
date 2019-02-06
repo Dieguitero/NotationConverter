@@ -24,7 +24,8 @@ int main() {
         std::cout << "properly emptied deque" << std::endl;
 
     std::cout << "Backwards: " << std::endl;
-    for(!deque2.emptyDeque()) {
+
+    while(!deque2.emptyDeque()) {
         std::cout << deque2.back() << std::endl;
         deque2.removeBack();
     }
