@@ -5,7 +5,7 @@ bool isPrefix(std::string str) {
 }
 
 bool hasInvalidChars(const LinkedDeque& deque) {
-    
+    return false;
 }
 
 void NotationConverter::decodeInput(std::string inStr) {
