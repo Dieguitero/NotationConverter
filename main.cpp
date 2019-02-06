@@ -7,11 +7,12 @@
 int main() {
 
     const std::string infix1 = "(A + B) ";
-    NotationConverter nc;
+    NotationConverter nc, nc2;
 
     nc.decodeInput(infix1);
+    nc2.decodeInput(infix1);
     auto deque = nc.getDeque();
-    auto deque2 = nc.getDeque();
+    auto deque2 = nc2.getDeque();
     auto size = deque.getSize();
     auto size2 = size;
     std::cout << "size = " << size2 << std::endl;
