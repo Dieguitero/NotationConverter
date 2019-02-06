@@ -1,9 +1,7 @@
 #include "LinkedDeque.hpp"
 
 LinkedDeque::LinkedDeque() {
-    cursor = new DequeListNode;
     size = 0;
-    cursor = list.getCursor();
 }
 
 char LinkedDeque::front() {
@@ -39,8 +37,4 @@ void LinkedDeque::removeBack() {
         throw("EmptyDeque");
     list.removeBack();
     size--;
-}
-
-void LinkedDeque::iterateCursor() {
-    list.iterateCursor();
 }

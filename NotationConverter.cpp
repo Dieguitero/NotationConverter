@@ -4,10 +4,6 @@ bool isPrefix(std::string str) {
     return ((str.at(0) == '+') || (str.at(0) == '-') || (str.at(0) == '/') || (str.at(0) == '*'));
 }
 
-bool hasInvalidChars(const LinkedDeque& deque) {
-    return false;
-}
-
 void NotationConverter::decodeInput(std::string inStr) {
     for(auto part : inStr) {
         if(part != ' ') {

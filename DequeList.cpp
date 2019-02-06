@@ -1,12 +1,10 @@
 #include "DequeList.hpp"
 
 DequeList::DequeList() {
-    cursor = new DequeListNode;
     header = new DequeListNode;
     trailer = new DequeListNode;
     header->next = trailer;
     trailer->prev = header;
-    cursor = nullptr;
     size = 0;
 }
 
@@ -16,7 +14,6 @@ DequeList::~DequeList() {
     }
     delete trailer;
     delete header;
-    delete cursor;
 }
 
 void DequeList::emptyAdd(DequeListNode* new_part) {
@@ -24,8 +21,8 @@ void DequeList::emptyAdd(DequeListNode* new_part) {
     new_part->prev = header;
     new_part->next = trailer;
     trailer->prev = new_part;
-    cursor = new_part;
 }
+
 void DequeList::addFront(const char& part) {
     DequeListNode* new_part = new DequeListNode;
     new_part->part = part;
@@ -81,8 +78,4 @@ void DequeList::removeBack() {
 
     delete node_to_remove;
     size--;
-}
-
-void DequeList::iterateCursor() {
-    cursor = cursor->next;
 }

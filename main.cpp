@@ -35,11 +35,5 @@ int main() {
         std::cout << "properly emptied deque2" << std::endl;
     }
 
-    auto dcur = deque3.getCursor();
-    while(dcur != deque3.getList().getTrailer()) {
-        std::cout << dcur->getPart() << std::endl;
-        deque3.iterateCursor();
-    }
-
     return 0;
 }
