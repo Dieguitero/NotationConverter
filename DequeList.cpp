@@ -1,11 +1,12 @@
 #include "DequeList.hpp"
 
 DequeList::DequeList() {
-    cursor = nullptr;
+    cursor = new DequeListNode;
     header = new DequeListNode;
     trailer = new DequeListNode;
     header->next = trailer;
     trailer->prev = header;
+    cursor = nullptr;
     size = 0;
 }
 

@@ -1,6 +1,7 @@
 #include "LinkedDeque.hpp"
 
 LinkedDeque::LinkedDeque() {
+    cursor = new DequeListNode;
     size = 0;
     cursor = list.getCursor();
 }
