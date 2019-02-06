@@ -13,9 +13,10 @@ int main() {
     auto deque = nc.getDeque();
     auto deque2 = nc.getDeque();
     auto size = deque.getSize();
-    std::cout << "size = " << size << std::endl;
+    auto size2 = size;
+    std::cout << "size = " << size2 << std::endl;
     std::cout << "Forwards: " << std::endl;
-    for(auto i = 0; i < size; i++){
+    while (!deque.emptyDeque()){
         std::cout << deque.front() << std::endl;
         deque.removeFront();
     }
@@ -23,8 +24,9 @@ int main() {
         std::cout << "properly emptied deque" << std::endl;
 
     std::cout << "Backwards: " << std::endl;
-    for(auto i = 0; i < size; i++) {
+    for(!deque2.emptyDeque()) {
         std::cout << deque2.back() << std::endl;
+        deque2.removeBack();
     }
     if(deque2.emptyDeque()){
         std::cout << "properly emptied deque2" << std::endl;
