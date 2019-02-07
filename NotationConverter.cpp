@@ -38,16 +38,12 @@ int pemdas(char op) {
 }
 
 bool isStringInvalid(std::string str) {
-    std::cout << "inside isStringInvalid" << std::endl;
     for(char c : str) {
-        std::cout << "inside the for loop of isStringInvalid" << std::endl;
-        bool isValid = (isCharLetter(c) || isCharOp(c) || c == ' ');
+        bool isValid = (isCharLetter(c) || isCharOp(c) || c == ' ' || c == '(' || c == ')');
         if(!isValid) {
-            std::cout << "inside the if, we should be about to return true" << std::endl;
             return true;
         }
     }
-    std::cout << "outside of the for loop, about to return false" << std::endl;
     return false;
 }
 
@@ -152,9 +148,7 @@ std::string NotationConverter::infixToPostfix(std::string inStr) {
 }
 
 std::string NotationConverter::infixToPrefix(std::string inStr) {
-    if(isStringInvalid(inStr)) {
-        throw("InvalidString");
-    }
+
     std::string ret = "";
     std::string temp = "";
 
