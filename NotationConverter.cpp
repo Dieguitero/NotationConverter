@@ -55,9 +55,9 @@ std::string NotationConverter::infixToPrefix(std::string inStr) {
 
 //Prefix Converters
 std::string NotationConverter::prefixToInfix(std::string inStr) {
-    if(isStringInvalid(inStr)) {
-        throw("Invalid String");
-    }
+    // if(isStringInvalid(inStr)) {
+    //     throw("Invalid String");
+    // }
     std::string ret;
     reverse(inStr.begin(), inStr.end());
     for(auto c : inStr) {
