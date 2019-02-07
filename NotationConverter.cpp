@@ -62,10 +62,8 @@ std::string NotationConverter::infixToPrefix(std::string inStr) {
 std::string NotationConverter::prefixToInfix(std::string inStr) {
     std::cout << "about to check if this string is invalid: " << inStr << std::endl;
     // bool isNotValid = isStringInvalid(inStr);
-    if(isStringInvalid(inStr)) {
-        std::cout << "the string was invalid and we are inside the if" << std::endl;
+    if(isStringInvalid(inStr))
         throw("Invalid String");
-    }
     std::string ret;
     reverse(inStr.begin(), inStr.end());
     for(auto c : inStr) {
