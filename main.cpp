@@ -11,9 +11,10 @@ int main() {
     const std::string postfix2 = "V C +";
     const std::string infix2 = "((X + B) * (Y - D))";
     NotationConverter n4;
+    NotationConverter nc;
     
     // std::cout << n4.prefixToInfix(prefix1) << std::endl;
     std::cout << n4.postfixToInfix(postfix1) << std::endl;
-    std::cout << n4.infixToPostfix(infix2) << std::endl;
+    std::cout << nc.infixToPostfix(infix2) << std::endl;
     return 0;
 }
