@@ -55,6 +55,9 @@ std::string NotationConverter::infixToPrefix(std::string inStr) {
 
 //Prefix Converters
 std::string NotationConverter::prefixToInfix(std::string inStr) {
+    if(isStringInvalid(inStr)) {
+        throw("Invalid String");
+    }
     std::string ret;
     reverse(inStr.begin(), inStr.end());
     for(auto c : inStr) {
@@ -62,9 +65,9 @@ std::string NotationConverter::prefixToInfix(std::string inStr) {
             continue;
         }
         else if(isCharLetter(c)) {
-            std::string str = "";
-            str += c;
-            notation_deque.insertBack(str);
+            std::string temp = "";
+            temp += c;
+            notation_deque.insertBack(temp);
         }
         else if (isCharOp(c)) {
             std::string temp = "";
