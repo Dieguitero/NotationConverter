@@ -23,7 +23,8 @@ bool isCharOp(const char& c) {
 
 bool isStringInvalid(const std::string& str) {
     for(auto c : str) {
-        if(!(isCharLetter(c) || isCharOp(c))) {
+        bool isValid = (isCharLetter(c) || isCharOp(c));
+        if(!isValid) {
             return true;
         }
     }
@@ -55,9 +56,9 @@ std::string NotationConverter::infixToPrefix(std::string inStr) {
 
 //Prefix Converters
 std::string NotationConverter::prefixToInfix(std::string inStr) {
-    // if(isStringInvalid(inStr)) {
-    //     throw("Invalid String");
-    // }
+    if(isStringInvalid(inStr)) {
+        throw("Invalid String");
+    }
     std::string ret;
     reverse(inStr.begin(), inStr.end());
     for(auto c : inStr) {
