@@ -1,8 +1,5 @@
 #include "NotationConverter.hpp"
 
-bool isPrefix(std::string str) {
-    return ((str.at(0) == '+') || (str.at(0) == '-') || (str.at(0) == '/') || (str.at(0) == '*'));
-}
 bool isCharLetter(const char& c) {
     bool islower = (c >= 'a' && c <= 'z');
     bool isupper= (c >= 'A' && c <= 'Z');
@@ -93,8 +90,11 @@ std::string NotationConverter::postfixToInfix(std::string inStr) {
 }
 
 std::string NotationConverter::postfixToPrefix(std::string inStr) {
-
-    return "";
+    std::string ret = "";
+    std::string temp = "";
+    temp = postfixToInfix(inStr);
+    ret = infixToPrefix(temp);
+    return ret;
 }
 //End of Postfix Converters
 
@@ -217,7 +217,10 @@ std::string NotationConverter::prefixToInfix(std::string inStr) {
 }
 
 std::string NotationConverter::prefixToPostfix(std::string inStr) {
-
-    return "";
+    std::string ret = "";
+    std::string temp = "";
+    temp = prefixToInfix(inStr);
+    ret = infixToPrefix(temp);
+    return ret;
 }
 //End of Prefix  Converters
