@@ -36,9 +36,40 @@ bool isStringInvalid(std::string str) {
 }
 
 //Postfix Converters
-std::string NotationConverter::postfixToInfix(std::string inStr) {
-    
-    return "";
+std::string NotationConverter::postfixToInfix(std::string inStr) {    
+    std::string ret;
+    for(auto c : inStr) {
+        if(c == ' ') {
+            continue;
+        }
+        else if(isCharLetter(c)) {
+            std::string temp = "";
+            temp += c;
+            notation_deque.insertFront(temp);
+        }
+        else if (isCharOp(c)) {
+            std::string temp = "";
+            temp += '(';
+            temp += notation_deque.front();
+            notation_deque.removeFront();
+            temp += ' ';
+            temp += c;
+            temp += ' ';
+            temp += notation_deque.front();
+            notation_deque.removeFront();
+            temp += ')';
+            notation_deque.insertFront(temp);
+        }
+        else {
+            throw("InvalidString");
+        }
+    }
+    while(!notation_deque.emptyDeque()) {
+        ret += notation_deque.front();
+        notation_deque.removeFront();
+    }
+
+    return ret;
 }
 
 std::string NotationConverter::postfixToPrefix(std::string inStr) {
