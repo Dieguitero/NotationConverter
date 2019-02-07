@@ -139,7 +139,7 @@ std::string NotationConverter::infixToPostfix(std::string inStr) {
         notation_deque.removeFront();
         ret += temp;
     }
-
+    return ret;
 }
 
 std::string NotationConverter::infixToPrefix(std::string inStr) {
