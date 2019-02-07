@@ -5,6 +5,7 @@
 #include <iostream>
 
 int main() {
+    const std::string prefix1 = "+ / * x y g h";
     NotationConverter n4;
     
     std::cout << n4.prefixToInfix(prefix1) << std::endl;
