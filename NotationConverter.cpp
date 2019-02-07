@@ -45,7 +45,7 @@ std::string NotationConverter::postfixToInfix(std::string inStr) {
         else if(isCharLetter(c)) {
             std::string temp = "";
             temp += c;
-            notation_deque.insertFront(temp);
+            notation_deque.insertBack(temp);
         }
         else if (isCharOp(c)) {
             std::string temp = "";
