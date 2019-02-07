@@ -21,7 +21,7 @@ bool isCharOp(const char& c) {
     return isOP;
 }
 
-bool isStringInvalid(const std::string str) {
+bool isStringInvalid(std::string str) {
     for(auto c : str) {
         bool isValid = (isCharLetter(c) || isCharOp(c));
         if(!isValid) {
