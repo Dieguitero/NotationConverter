@@ -154,6 +154,8 @@ std::string NotationConverter::infixToPostfix(std::string inStr) {
     clear(); //clears the elements of the deque (including the end flag)
     if(ret.at(0) == ' ') //Gets rid of unecessary white space at beginning of string
         ret.erase(ret.begin());
+    if(ret.back() == ' ') //Gets rid of unecssary whtie space at end of string
+        ret.erase(ret.end()-1);
     return ret;
 }
 
@@ -184,6 +186,8 @@ std::string NotationConverter::infixToPrefix(std::string inStr) {
     clear(); //clears the elements of the deque (including the end flag used in infixToPostfix)
     if(ret.at(0) == ' ') //Gets rid of unecessary white space at beginning of string
         ret.erase(ret.begin());
+    if(ret.back() == ' ') //Gets rid of unecssary whtie space at end of string
+        ret.erase(ret.end()-1);
     return ret;
 }
 //End of Postfix Converters
