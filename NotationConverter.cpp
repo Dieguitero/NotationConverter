@@ -181,6 +181,9 @@ std::string NotationConverter::infixToPrefix(std::string inStr) {
     ret = infixToPostfix(temp); //set return string to the postfix string
     reverse(ret.begin(), ret.end()); //reverse the postfix to retrieve the infix string
 
+    clear(); //clears the elements of the deque (including the end flag used in infixToPostfix)
+    if(ret.at(0) == ' ') //Gets rid of unecessary white space at beginning of string
+        ret.erase(ret.begin());
     return ret;
 }
 //End of Postfix Converters
