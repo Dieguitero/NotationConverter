@@ -12,6 +12,7 @@ public:
     //Default constructor and destructor
     NotationConverter() = default;
     ~NotationConverter() = default;
+    void clear(); //helper function to clear the entire deque
 
     //postfix conversion functions
     virtual std::string postfixToInfix(std::string inStr);

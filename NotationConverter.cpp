@@ -40,6 +40,13 @@ int pemdas(char op) {
     }
 }
 
+//Helper function to clear the whole deque
+void NotationConverter::clear() {
+    while(!notation_deque.emptyDeque()) {
+        notation_deque.removeFront();
+    }
+}
+
 //Postfix Converters
 std::string NotationConverter::postfixToInfix(std::string inStr) {    
     std::string ret; //String to return
@@ -143,6 +150,8 @@ std::string NotationConverter::infixToPostfix(std::string inStr) {
         ret += temp; //append the front of the deque to return string until the deque is empty
         ret += ' ';
     }
+
+    clear();
     return ret;
 }
 
