@@ -60,11 +60,12 @@ std::string NotationConverter::infixToPrefix(std::string inStr) {
 
 //Prefix Converters
 std::string NotationConverter::prefixToInfix(std::string inStr) {
+    const auto invalidStringError = "Invalid String";
     std::cout << "about to check if this string is invalid: " << inStr << std::endl;
     // bool isNotValid = isStringInvalid(inStr);
     if(isStringInvalid(inStr)) {
         std::cout << "the string was invalid and we are inside the if" << std::endl;
-        throw("Invalid String");
+        throw(invalidStringError);
     }
     std::string ret;
     reverse(inStr.begin(), inStr.end());
