@@ -151,7 +151,9 @@ std::string NotationConverter::infixToPostfix(std::string inStr) {
         ret += ' ';
     }
 
-    clear();
+    clear(); //clears the elements of the deque (including the end flag)
+    if(ret.at(0) == ' ') //Gets rid of unecessary white space at beginning of string
+        ret.erase(ret.begin());
     return ret;
 }
 
