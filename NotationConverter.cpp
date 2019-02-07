@@ -152,9 +152,27 @@ std::string NotationConverter::infixToPostfix(std::string inStr) {
 }
 
 std::string NotationConverter::infixToPrefix(std::string inStr) {
-    reverse(inStr.begin(), inStr.end());
+    std::string ret = "";
+    std::string temp = "";
 
-    return "";
+    for(auto c : inStr) {
+        temp += c;
+    }
+
+    for (int i = 0; i < temp.length(); i++) {
+        if(temp.at(i) == '(') {
+            temp.at(i) == ')';
+        }
+        else if (temp.at(i) == ')') {
+            temp.at(i) = '(';
+        }
+    }
+
+    reverse(temp.begin(), temp.end());
+    ret = infixToPostfix(temp);
+    reverse(ret.begin(), ret.end());
+
+    return ret;
 }
 //End of Postfix Converters
 

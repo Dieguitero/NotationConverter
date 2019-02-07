@@ -18,5 +18,7 @@ int main() {
     std::cout << n4.postfixToInfix(postfix1) << std::endl;
     std::cout << nc.infixToPostfix(infix1) << std::endl;
     std::cout << nc.infixToPostfix(infix2) << std::endl;
+    std::cout << nc.infixToPrefix(infix1) << std::endl;
+    std::cout << nc.infixToPrefix(infix2) << std::endl;
     return 0;
 }
