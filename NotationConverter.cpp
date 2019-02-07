@@ -152,6 +152,9 @@ std::string NotationConverter::infixToPostfix(std::string inStr) {
 }
 
 std::string NotationConverter::infixToPrefix(std::string inStr) {
+    if(isStringInvalid(inStr)) {
+        throw("InvalidString");
+    }
     std::string ret = "";
     std::string temp = "";
 
