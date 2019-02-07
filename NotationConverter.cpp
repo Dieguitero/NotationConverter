@@ -21,6 +21,25 @@ bool isCharOp(const char& c) {
     return isOP;
 }
 
+int pemdas(char op) {
+    switch(op) {
+        case '*':
+            return 2;
+            break;
+        case '/':
+            return 2;
+            break;
+        case '+':
+            return 1;
+            break;
+        case '-':
+            return 1;
+            break;
+        default:
+            return 0;
+    }
+}
+
 bool isStringInvalid(std::string str) {
     std::cout << "inside isStringInvalid" << std::endl;
     for(char c : str) {
@@ -81,10 +100,49 @@ std::string NotationConverter::postfixToPrefix(std::string inStr) {
 
 //Infix Converters
 std::string NotationConverter::infixToPostfix(std::string inStr) {
-    return "";
+    std::string ret;
+    std::string endFlag = "end";
+    notation_deque.insertBack(endFlag);
+    for(auto c : inStr) {
+        if (c == ' ') {
+            continue;
+        }
+        else if (c == '(') {
+            std::string temp = "";
+            temp += c;
+            notation_deque.insertFront(temp);
+        }
+        else if (c == ')') {
+            while(notation_deque.front() != endFlag && notation_deque.front() != "(") {
+                std::string temp = notation_deque.front();
+                notation_deque.removeFront();
+                ret += temp;
+            }
+            if(notation_deque.front() == "("){
+                notation_deque.removeFront();
+            }
+        }
+        else { //else if(isCharOp(c))
+            std::string temp = "";
+            while(notation_deque.front() != endFlag && pemdas(c) <= pemdas(notation_deque.front().at(0))) {
+                temp = notation_deque.front();
+                notation_deque.removeFront();
+                ret += temp;
+            }
+            notation_deque.insertFront(temp);
+        }
+    }
+
+    while(notation_deque.front() != endFlag) {
+        std::string temp = notation_deque.front();
+        notation_deque.removeFront();
+        ret += temp;
+    }
+    return ret;
 }
 
 std::string NotationConverter::infixToPrefix(std::string inStr) {
+    reverse(inStr.begin(), inStr.end());
 
     return "";
 }
