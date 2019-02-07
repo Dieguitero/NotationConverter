@@ -7,11 +7,11 @@ public:
     
     int getSize() const { return size; }
     bool emptyDeque() { return list.emptyList(); }
-    char front();
-    char back();
+    std::string front();
+    std::string back();
 
-    void insertFront(const char& part);
-    void insertBack(const char& part);
+    void insertFront(const std::string& part);
+    void insertBack(const std::string& part);
     void removeFront();
     void removeBack();
     void clear();

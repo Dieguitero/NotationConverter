@@ -4,23 +4,23 @@ LinkedDeque::LinkedDeque() {
     size = 0;
 }
 
-char LinkedDeque::front() {
+std::string LinkedDeque::front() {
     if(emptyDeque())
         throw("EmptyDeque");  
     return list.front();
 }
 
-char LinkedDeque::back() {
+std::string LinkedDeque::back() {
     if(emptyDeque())
         throw("EmptyDeque");
     return list.back();
 }
-void LinkedDeque::insertFront(const char& part) {
+void LinkedDeque::insertFront(const std::string& part) {
     list.addFront(part);
     size++;
 }
 
-void LinkedDeque::insertBack(const char& part) {
+void LinkedDeque::insertBack(const std::string& part) {
     list.addBack(part);
     size++;
 }

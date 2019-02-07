@@ -20,23 +20,14 @@ bool isCharOp(const char& c) {
     bool isOP = (isTimes || isAdd || isSub || isDivide);
     return isOP;
 }
-bool isCharInvalid(const char& c) {
-    bool isLetter = isCharLetter(c);
-    bool isOp = isCharOp(c);
 
-    bool isValid = (isLetter || isOp);
-
-    if(isValid) {
-        return false; //char is valid
-    }
-    return true; //char is invalid
-}
-void NotationConverter::decodeInput(std::string inStr) {
-    for(auto part : inStr) {
-        if(part != ' ') { //ignoring all white space from string
-            notation_deque.insertBack(part); //inserting each character into the deque
+bool isStringInvalid(const std::string& str) {
+    for(auto c : str) {
+        if(!(isCharLetter(c) || isCharOp(c))) {
+            return true;
         }
     }
+    return false;
 }
 
 //Postfix Converters
@@ -55,26 +46,7 @@ std::string NotationConverter::postfixToPrefix(std::string inStr) {
 std::string NotationConverter::infixToPostfix(std::string inStr) {
     decodeInput(inStr); //inserting the strings into the deque
     std::ostringstream oSS;
-    while(!notation_deque.emptyDeque()) {
-        if(notation_deque.front() == '(' || notation_deque.front() == ')'){
-            notation_deque.removeFront();
-        }
-        if(isCharInvalid(notation_deque.front())) {
-            notation_deque.clear();
-            throw("Invalid Character In String");
-        }
-        if(isCharLetter(notation_deque.front())) {
-            oSS << notation_deque.front();
-            oSS << ' ';
-            notation_deque.removeFront();
-        }
-        else {
-            oSS << notation_deque.back();
-            oSS << ' ';
-            notation_deque.removeBack();
-        }
-        
-    }
+
     return oSS.str();
 }
 
@@ -86,7 +58,23 @@ std::string NotationConverter::infixToPrefix(std::string inStr) {
 
 //Prefix Converters
 std::string NotationConverter::prefixToInfix(std::string inStr) {
-
+    std::string ret;
+    reverse(inStr.begin(), inStr.end());
+    for(auto c : inStr) {
+        if(isCharLetter(c)) {
+            std::string str = "";
+            str += c;
+            notation_deque.insertBack(str);
+        }
+        if (isCharOp(c)) {
+            ret += notation_deque.back();
+            notation_deque.removeBack();
+            ret += c;
+            ret += notation_deque.back();
+            notation_deque.removeBack();
+            notation_deque.insertBack(ret);
+        }
+    }
     return "";
 }
 

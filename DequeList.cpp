@@ -23,7 +23,7 @@ void DequeList::emptyAdd(DequeListNode* new_part) {
     trailer->prev = new_part;
 }
 
-void DequeList::addFront(const char& part) {
+void DequeList::addFront(const std::string& part) {
     DequeListNode* new_part = new DequeListNode;
     new_part->part = part;
 
@@ -39,7 +39,7 @@ void DequeList::addFront(const char& part) {
     }
 }
 
-void DequeList::addBack(const char& part) {
+void DequeList::addBack(const std::string& part) {
     DequeListNode* new_part = new DequeListNode;
     new_part->part = part;
     if(emptyList()) {
