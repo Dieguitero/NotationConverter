@@ -65,8 +65,8 @@ std::string NotationConverter::postfixToInfix(std::string inStr) {
         }
     }
     while(!notation_deque.emptyDeque()) {
-        ret += notation_deque.front();
-        notation_deque.removeFront();
+        ret += notation_deque.back();
+        notation_deque.removeBack();
     }
 
     return ret;
