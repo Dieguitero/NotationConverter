@@ -134,11 +134,12 @@ std::string NotationConverter::infixToPostfix(std::string inStr) {
     }
 
     while(notation_deque.front() != endFlag) {
-        std::string temp = notation_deque.front();
+        std::string temp = "";
+        temp = notation_deque.front();
         notation_deque.removeFront();
         ret += temp;
     }
-    return ret;
+
 }
 
 std::string NotationConverter::infixToPrefix(std::string inStr) {
