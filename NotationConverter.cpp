@@ -124,14 +124,14 @@ std::string NotationConverter::infixToPostfix(std::string inStr) {
             }
         }
         else if(isCharOp(c)) { //else if(isCharOp(c))
-            std::string temp;
             while(notation_deque.front() != endFlag && pemdas(c) <= pemdas(notation_deque.front().at(0))) {
-                temp = "";
-                temp = notation_deque.front();
+                std::string temp = notation_deque.front();
                 notation_deque.removeFront();
                 ret += temp;
             }
-            notation_deque.insertFront(temp);
+            std::string strToInsert = "";
+            strToInsert += c;
+            notation_deque.insertFront(strToInsert);
         }
     }
 
