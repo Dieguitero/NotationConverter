@@ -109,6 +109,7 @@ std::string NotationConverter::infixToPostfix(std::string inStr) {
         }
         else if(isCharLetter(c)) {
             ret += c;
+            ret += ' ';
         }
         else if (c == '(') {
             std::string temp = "";
@@ -121,6 +122,7 @@ std::string NotationConverter::infixToPostfix(std::string inStr) {
                 temp = notation_deque.front();
                 notation_deque.removeFront();
                 ret += temp;
+                ret += ' ';
             }
             if(notation_deque.front() == "("){
                 notation_deque.removeFront();
@@ -131,6 +133,7 @@ std::string NotationConverter::infixToPostfix(std::string inStr) {
                 std::string temp = notation_deque.front();
                 notation_deque.removeFront();
                 ret += temp;
+                ret += ' ';
             }
             std::string strToInsert = "";
             strToInsert += c;
@@ -143,6 +146,7 @@ std::string NotationConverter::infixToPostfix(std::string inStr) {
         temp = notation_deque.front();
         notation_deque.removeFront();
         ret += temp;
+        ret += ' ';
     }
     return ret;
 }
