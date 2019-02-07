@@ -114,7 +114,8 @@ std::string NotationConverter::infixToPostfix(std::string inStr) {
         }
         else if (c == ')') {
             while(notation_deque.front() != endFlag && notation_deque.front() != "(") {
-                std::string temp = notation_deque.front();
+                std::string temp = "";
+                temp = notation_deque.front();
                 notation_deque.removeFront();
                 ret += temp;
             }
@@ -123,8 +124,9 @@ std::string NotationConverter::infixToPostfix(std::string inStr) {
             }
         }
         else if(isCharOp(c)) { //else if(isCharOp(c))
-            std::string temp = "";
+            std::string temp;
             while(notation_deque.front() != endFlag && pemdas(c) <= pemdas(notation_deque.front().at(0))) {
+                temp = "";
                 temp = notation_deque.front();
                 notation_deque.removeFront();
                 ret += temp;
