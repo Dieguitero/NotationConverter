@@ -107,6 +107,9 @@ std::string NotationConverter::infixToPostfix(std::string inStr) {
         if (c == ' ') {
             continue;
         }
+        else if(isCharLetter(c)) {
+            ret += c;
+        }
         else if (c == '(') {
             std::string temp = "";
             temp += c;
