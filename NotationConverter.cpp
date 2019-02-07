@@ -61,8 +61,7 @@ std::string NotationConverter::infixToPrefix(std::string inStr) {
 //Prefix Converters
 std::string NotationConverter::prefixToInfix(std::string inStr) {
     std::cout << "about to check if this string is invalid: " << inStr << std::endl;
-    if(isStringInvalid(inStr))
-        throw("EmptyDeque");
+    
     std::string ret;
     reverse(inStr.begin(), inStr.end());
     for(auto c : inStr) {
@@ -86,6 +85,9 @@ std::string NotationConverter::prefixToInfix(std::string inStr) {
             notation_deque.removeBack();
             temp += ')';
             notation_deque.insertBack(temp);
+        }
+        else {
+            throw("InvalidString");
         }
     }
     while(!notation_deque.emptyDeque()) {
