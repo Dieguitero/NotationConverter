@@ -45,11 +45,11 @@ std::string NotationConverter::postfixToInfix(std::string inStr) {
         else if(isCharLetter(c)) {
             std::string temp = "";
             temp += c;
-            notation_deque.insertBack(temp);
+            notation_deque.insertFront(temp);
         }
         else if (isCharOp(c)) {
             std::string temp = "";
-            temp += '(';
+            temp += ')';
             temp += notation_deque.front();
             notation_deque.removeFront();
             temp += ' ';
@@ -57,7 +57,7 @@ std::string NotationConverter::postfixToInfix(std::string inStr) {
             temp += ' ';
             temp += notation_deque.front();
             notation_deque.removeFront();
-            temp += ')';
+            temp += '(';
             notation_deque.insertFront(temp);
         }
         else {
@@ -65,10 +65,11 @@ std::string NotationConverter::postfixToInfix(std::string inStr) {
         }
     }
     while(!notation_deque.emptyDeque()) {
-        ret += notation_deque.back();
-        notation_deque.removeBack();
+        ret += notation_deque.front();
+        notation_deque.removeFront();
     }
-
+    
+    reverse(ret.begin(), ret.end());
     return ret;
 }
 
