@@ -135,6 +135,9 @@ std::string NotationConverter::infixToPostfix(std::string inStr) {
             strToInsert += c;
             notation_deque.insertFront(strToInsert);
         }
+        else {
+            throw("InvalidString");
+        }
     }
 
     while(notation_deque.front() != endFlag) {
@@ -153,6 +156,7 @@ std::string NotationConverter::infixToPrefix(std::string inStr) {
     std::string temp = "";
 
     for(auto c : inStr) {
+
         temp += c;
     }
 
