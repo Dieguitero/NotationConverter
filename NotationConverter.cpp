@@ -61,12 +61,15 @@ std::string NotationConverter::prefixToInfix(std::string inStr) {
     std::string ret;
     reverse(inStr.begin(), inStr.end());
     for(auto c : inStr) {
-        if(isCharLetter(c)) {
+        if(c == ' ') {
+            continue;
+        }
+        else if(isCharLetter(c)) {
             std::string str = "";
             str += c;
             notation_deque.insertBack(str);
         }
-        if (isCharOp(c)) {
+        else if (isCharOp(c)) {
             ret += notation_deque.back();
             notation_deque.removeBack();
             ret += c;
