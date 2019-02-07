@@ -67,15 +67,21 @@ std::string NotationConverter::prefixToInfix(std::string inStr) {
             notation_deque.insertBack(str);
         }
         else if (isCharOp(c)) {
-            ret += notation_deque.back();
+            std::string temp = "";
+            temp += notation_deque.back();
             notation_deque.removeBack();
-            ret += c;
-            ret += notation_deque.back();
+            temp += c;
+            temp += notation_deque.back();
             notation_deque.removeBack();
-            notation_deque.insertBack(ret);
+            notation_deque.insertBack(temp);
         }
     }
-    return "";
+    while(!notation_deque.emptyDeque()) {
+        ret += notation_deque.back();
+        notation_deque.removeBack();
+    }
+
+    return ret;
 }
 
 std::string NotationConverter::prefixToPostfix(std::string inStr) {
