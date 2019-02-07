@@ -159,12 +159,12 @@ std::string NotationConverter::infixToPrefix(std::string inStr) {
         temp += c;
     }
 
-    for (int i = 0; i < temp.length(); i++) {
-        if(temp.at(i) == '(') {
-            temp.at(i) == ')';
+    for (unsigned int i = 0; i < temp.length(); i++) {
+        if(temp[i] == '(') {
+            temp[i] == ')';
         }
-        else if (temp.at(i) == ')') {
-            temp.at(i) = '(';
+        else if (temp[i] == ')') {
+            temp[i] = '(';
         }
     }
 
