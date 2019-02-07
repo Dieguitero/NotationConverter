@@ -71,11 +71,13 @@ std::string NotationConverter::prefixToInfix(std::string inStr) {
         }
         else if (isCharOp(c)) {
             std::string temp = "";
+            temp += '(';
             temp += notation_deque.back();
             notation_deque.removeBack();
             temp += c;
             temp += notation_deque.back();
             notation_deque.removeBack();
+            temp += ')';
             notation_deque.insertBack(temp);
         }
     }
