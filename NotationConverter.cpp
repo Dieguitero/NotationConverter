@@ -220,7 +220,7 @@ std::string NotationConverter::prefixToPostfix(std::string inStr) {
     std::string ret = "";
     std::string temp = "";
     temp = prefixToInfix(inStr);
-    ret = infixToPrefix(temp);
+    ret = infixToPostfix(temp);
     return ret;
 }
 //End of Prefix  Converters
