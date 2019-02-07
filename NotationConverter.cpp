@@ -74,7 +74,9 @@ std::string NotationConverter::prefixToInfix(std::string inStr) {
             temp += '(';
             temp += notation_deque.back();
             notation_deque.removeBack();
+            temp += ' ';
             temp += c;
+            temp += ' ';
             temp += notation_deque.back();
             notation_deque.removeBack();
             temp += ')';
