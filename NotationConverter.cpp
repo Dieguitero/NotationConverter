@@ -44,10 +44,7 @@ std::string NotationConverter::postfixToPrefix(std::string inStr) {
 
 //Infix Converters
 std::string NotationConverter::infixToPostfix(std::string inStr) {
-    decodeInput(inStr); //inserting the strings into the deque
-    std::ostringstream oSS;
-
-    return oSS.str();
+    return "";
 }
 
 std::string NotationConverter::infixToPrefix(std::string inStr) {
