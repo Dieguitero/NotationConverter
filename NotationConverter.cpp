@@ -122,7 +122,7 @@ std::string NotationConverter::infixToPostfix(std::string inStr) {
                 notation_deque.removeFront();
             }
         }
-        else { //else if(isCharOp(c))
+        else if(isCharOp(c)) { //else if(isCharOp(c))
             std::string temp = "";
             while(notation_deque.front() != endFlag && pemdas(c) <= pemdas(notation_deque.front().at(0))) {
                 temp = notation_deque.front();
